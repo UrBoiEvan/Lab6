@@ -9,8 +9,27 @@ def encode(password):
     for i in encoded_list:
         encoded_pw += i[-1]
     return encoded_pw
+# testing if I can commit and push
+def decode(encoded_pw):
+    
+    if len(encoded_pw) > 8:
+        print("Error! User password is longer than 8 digits.\nShortening to 8 digits...")
+        encoded_pw = encoded_pw[:8]
+    decoded_pw = ''
+    for i in encoded_pw:
+        convertednum = int(i)-3
+        if convertednum <0:
+            if convertednum == -3:
+                convertednum = 7
+            elif convertednum == -2:
+                convertednum = 8
+            elif convertednum == -1:
+                convertednum = 9
+        decoded_pw += str(convertednum)
+    return decoded_pw
 
-
+        
+    
 
 def menu():
     print('Menu')
@@ -27,8 +46,9 @@ def main():
             input('Please enter your password to encode: ')
             print('Your password has been encoded and stored!')
         if option == 2:
-            # FIX ME: add decoder function
-            print('')
+            encodedPass = input('Please enter your password to decode:')
+            decode(encodedPass)
+            print('Your password has been decoded and stored!')
         if option == 3:
             break
 

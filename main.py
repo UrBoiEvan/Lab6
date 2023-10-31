@@ -43,11 +43,12 @@ def main(): #Main function
         menu()
         option = int(input('Please enter an option: '))
         if option == 1:
-            input('Please enter your password to encode: ')
+            password = input('Please enter your password to encode: ')
+            encoded_password = encode(password)
             print('Your password has been encoded and stored!')
         if option == 2:
             encodedPass = input('Please enter your password to decode:')
-            decode(encodedPass)
+            decoded_password = decode(encodedPass)
             print('Your password has been decoded and stored!')
         if option == 3:
             break
